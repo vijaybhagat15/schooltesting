@@ -14,25 +14,29 @@ const Carousel = () => {
   }, [dispatch]);
   const [index, setIndex] = useState(0);
   const [loaderWidth, setLoaderWidth] = useState(0);
-  const slides=[
-    {
-      image: website?.modules.hero.data?.img1,
-      title: website?.modules.hero.data?.Slide1_title,
-      description: website?.modules.hero.data?.Subtitle1,
-    },
-    {
-      image: website?.modules.hero.data?.img2,
-      title: website?.modules.hero.data?.Slide2_title,
-      description: website?.modules.hero.data?.Subtitle2,
-    },
-    {
-      image: website?.modules.hero.data?.img3,
-      title: website?.modules.hero.data?.Slide3_title,
-      description: website?.modules.hero.data?.Subtitle3,
-    },
-  ];
-    const nextSlide = useCallback(() => {setIndex((prev) => (prev + 1) % slides.length);}, [slides.length]);
-
+  const slides=website?.modules.hero.data.sliders;
+  // [
+  //   {
+  //     image: website?.modules.hero.data?.img1,
+  //     title: website?.modules.hero.data?.Slide1_title,
+  //     description: website?.modules.hero.data?.Subtitle1,
+  //   },
+  //   {
+  //     image: website?.modules.hero.data?.img2,
+  //     title: website?.modules.hero.data?.Slide2_title,
+  //     description: website?.modules.hero.data?.Subtitle2,
+  //   },
+  //   {
+  //     image: website?.modules.hero.data?.img3,
+  //     title: website?.modules.hero.data?.Slide3_title,
+  //     description: website?.modules.hero.data?.Subtitle3,
+  //   },
+  // ];
+  const nextSlide = useCallback(() => {
+    if (!slides || slides.length === 0) return; // ✅ Safe check
+    setIndex((prev) => (prev + 1) % slides.length);
+  }, [slides]);
+  
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -49,7 +53,7 @@ const Carousel = () => {
     }, 100);
     return () => clearInterval(loaderInterval);
   }, [index]);
-
+ 
     const prevSlide = () => setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   useEffect(() => {
     dispatch(fetchStyleData());
@@ -75,7 +79,7 @@ const Carousel = () => {
     transition={{ duration: 0.8, ease: "easeInOut" }}
     className="absolute inset-0 w-full h-full flex items-center sm:justify-start justify-center text-left bg-cover bg-center p-12 sm:p-28"
     style={{
-      backgroundImage: `url(${slides[index].image})`,
+      backgroundImage: `url(${slides[index].imageUrl})`,
       transition: "background-image 0.8s ease-in-out",
     }}
   >

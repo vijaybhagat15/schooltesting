@@ -13,6 +13,23 @@ interface ContactInfo {
   phone: string;
   address: string;
 }
+interface Slider {
+  imageUrl: string;
+  title: string;
+  description: string;
+}
+interface AboutSlider {
+  imageUrl: string;
+  title: string;
+  description: string;
+}
+
+interface Faculty {
+  imageUrl: string;
+  Facultytype: string;
+  Facultyname: string;
+}
+
 interface HeroData {
   Slide1_title: string;
   Subtitle1: string;
@@ -23,6 +40,28 @@ interface HeroData {
   Slide3_title: string;
   Subtitle3: string;
   img3: string;
+  sliders:Slider[];
+}
+interface GallerySlider {
+  imageUrl: string;
+  title?: string;
+  description: string;
+  Alt_text: string;
+}
+
+interface GalleryData {
+  gallery_title: string;
+  gallery_description: string;
+  gallery_image_1: string;
+  gallery_alt_1: string;
+  gallery_image_2: string;
+  gallery_alt_2: string;
+  gallery_image_3: string;
+  gallery_alt_3: string;
+  gallery_image_4: string;
+  gallery_alt_4: string;
+  gallery_layout: string;
+  sliders: GallerySlider[]; // <-- newly added
 }
 
 interface AboutData {
@@ -35,21 +74,34 @@ interface AboutData {
   Principal_img: string;
   HOD_img: string;
   President_img: string;
+  sliders: AboutSlider[];
+  faculties: Faculty[];
 }
 
 interface ContactData {
-  contact_titel: string;
+  contact_title: string;
   description: string;
   location: string;
-  contact_bg:string;
+  contact_bg: string;
+  numbers: {
+    For_Admissions: string[];
+    For_Examinations: string[];
+    For_Accounts: string[];
+  };
+  emails: {
+    For_Admissions: string[];
+    For_Examinations: string[];
+    For_Accounts: string[];
+  };
 }
+
 
 interface Modules {
   hero: { enabled: boolean; data: HeroData };
   about: { enabled: boolean; data: AboutData };
   courses: { enabled: boolean };
   events: { enabled: boolean };
-  gallery: { enabled: boolean };
+  gallery:     { enabled: boolean; data: GalleryData };   // <-- added data here
   testimonials: { enabled: boolean };
   blog: { enabled: boolean };
   contact: { enabled: boolean; data: ContactData };

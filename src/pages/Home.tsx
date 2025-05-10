@@ -8,8 +8,10 @@ const Home: React.FC = () => {
   return (
     <div>
       <Section1 />
-      {/* <Section2 />
+      <Section2 />
       <Section4 />
+      {/* 
+      
       <Section3 />
       <Section5 />
       <Section6 /> */}

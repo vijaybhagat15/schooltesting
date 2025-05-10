@@ -25,7 +25,7 @@ const Section1: React.FC = () => {
         transition={{ duration: 1 }}
         className="absolute inset-0 flex flex-col items-start justify-center pl-5 sm:pl-20"
       >
-        <h1 className="text-3xl md:text-4xl font-bold text-primary">{website.modules.contact.data.contact_titel}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-primary">{website.modules.contact.data.contact_title}</h1>
         <p className="text-secondary text-lg mt-2 max-w-xl">
         {website.modules.contact.data.description}
         </p>
