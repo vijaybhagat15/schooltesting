@@ -1,8 +1,8 @@
 import { useState, useEffect,useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
 import { fetchStyleData } from "../../redux/slices/styleSlice";
 import { useAppSelector } from '../../redux/hooks';
 const Carousel = () => {
@@ -54,7 +54,7 @@ const Carousel = () => {
     return () => clearInterval(loaderInterval);
   }, [index]);
  
-    const prevSlide = () => setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    const prevSlide = () => setIndex((prev) => (prev === 0 ? (slides?.length ?? 0) - 1 : prev - 1));
   useEffect(() => {
     dispatch(fetchStyleData());
   }, [dispatch]);
