@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Section6 from './components/Sections_for_Home/Section6';
-import Schools from './pages/Schools';
 import Contact from './pages/Contact';
 import Academics from './pages/Academics';
 function App() {
@@ -17,7 +16,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/About" element={<About/>} />
             <Route path="/News" element={<Section6/>} />
-            <Route path="/Schools" element={<Schools/>} />
             <Route path="/Academics" element={<Academics/>} />
             <Route path="/Contact" element={<Contact/>} />
           </Routes>
