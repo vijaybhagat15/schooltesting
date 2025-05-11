@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
 import * as FaIcons from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../redux/store";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 import { useAppSelector } from "../redux/hooks";
 
 // Helper to convert platform string to Icon component name

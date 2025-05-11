@@ -10,7 +10,7 @@ const Section4 = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.1 });
   const dispatch = useDispatch<AppDispatch>();
 
-  const { logo, name } = useAppSelector((state: RootState) => state.header);
+  const { logo } = useAppSelector((state: RootState) => state.header);
 
   useEffect(() => {
     dispatch(fetchSection4Data());

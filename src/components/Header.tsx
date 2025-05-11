@@ -130,7 +130,7 @@ const Header: React.FC = () => {
           className="absolute top-16 left-0 w-full shadow-lg lg:hidden"
           style={{ backgroundColor: theme.primaryColor || "#ffffff" }}
         >
-          <MobilenavLinks setMenuOpen={setMenuOpen} />
+          <MobilenavLinks setMenuOpen={setMenuOpen} navigation={navigation}/>
         </div>
       )}
     </>
