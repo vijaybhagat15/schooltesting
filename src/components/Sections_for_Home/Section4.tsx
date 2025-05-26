@@ -1,26 +1,15 @@
-import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchSection4Data } from "../../redux/slices/section4Slice";
-import { AppDispatch, RootState } from "../../redux/store";
+import {  useSelector } from "react-redux";
+import {  RootState } from "../../redux/store";
 import { useAppSelector } from "../../redux/hooks";
 
 const Section4 = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.1 });
-  const dispatch = useDispatch<AppDispatch>();
-
   const { logo } = useAppSelector((state: RootState) => state.header);
-
-  useEffect(() => {
-    dispatch(fetchSection4Data());
-  }, [dispatch]);
-
   const { website } = useSelector((state: RootState) => state.website);
   const gallary = website?.modules?.gallery?.data;
   const sliders = gallary?.sliders || [];
-
-
   return (
     <section
       // className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 ${styles["border-primary"]}`}

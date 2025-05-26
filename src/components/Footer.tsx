@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
         <div className="text-center space-y-2">
           <div className="flex justify-center">
             <img
-              src={footer?.logo || logo?.url || "/placeholder-logo.png"}
+              src={logo?.url || logo?.url || "/placeholder-logo.png"}
               alt="Footer Logo"
               className="h-32 object-contain"
             />

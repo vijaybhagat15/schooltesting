@@ -16,10 +16,10 @@ interface ThemeState {
   data: {
     buttonStyles: ButtonStyles;
     name: string;
-    backgroundColor: string;
-    textColor: string;
-    primaryColor: string;
-    secondaryColor: string;
+    primary_background_Color: string;
+    Secondary_background_Color: string;
+    primary_text_Color: string;
+    secondary_text_Color : string;
     accentColor: string;
     fontFamily: string;
     headerBackgroundColor: string;

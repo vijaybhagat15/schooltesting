@@ -1,18 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../redux/store";
 import { useAppSelector } from '../redux/hooks';
-import { fetchStyleData } from "../redux/slices/styleSlice";
 
 const About = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const { website, loading, error } = useAppSelector((state) => state.website);
   
-  useEffect(() => {
-    dispatch(fetchStyleData());
-  }, [dispatch]);
+
 
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.1 });
 

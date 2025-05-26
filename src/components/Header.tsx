@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import MobilenavLinks from "./Mobilenavelinks";
 import { useDispatch, useSelector } from 'react-redux';
-
 import { fetchWebsite } from "../redux/slices/websiteSlice";
 import { fetchHeader } from "../redux/slices/headerSlice";
 import { fetchSchoolDetails } from "../redux/slices/schoolSlice";
@@ -32,7 +31,7 @@ const Header: React.FC = () => {
 
   // Fetch website and theme data on mount
   useEffect(() => {
-    dispatch(fetchWebsite("680a1c0c53493f221d63304c"));
+    dispatch(fetchWebsite("school.com"));
   }, [dispatch]);
 
   // Once website data arrives, fetch related configs
@@ -64,7 +63,7 @@ const Header: React.FC = () => {
       <header
         style={{
           backgroundColor: theme.headerBackgroundColor || "#ffffff",
-          color: theme.textColor || "#000000",
+          color: theme.primary_text_Color || "#000000",
         }}
         className="flex items-center justify-between px-4 md:px-6 shadow-md w-full sticky top-0 z-10 h-16 md:h-20"
       >
@@ -111,7 +110,7 @@ const Header: React.FC = () => {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden"
-          style={{ color: theme.textColor || "#000000" }}
+          style={{ color: theme.primary_text_Color || "#000000" }}
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -128,7 +127,7 @@ const Header: React.FC = () => {
       {menuOpen && !isLoading && !errorMessage && (
         <div
           className="absolute top-16 left-0 w-full shadow-lg lg:hidden"
-          style={{ backgroundColor: theme.primaryColor || "#ffffff" }}
+          style={{ backgroundColor: theme.primary_text_Color || "#ffffff" }}
         >
           <MobilenavLinks setMenuOpen={setMenuOpen} navigation={navigation}/>
         </div>

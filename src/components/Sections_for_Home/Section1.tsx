@@ -1,37 +1,13 @@
 import { useState, useEffect,useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
-import { fetchStyleData } from "../../redux/slices/styleSlice";
+
 import { useAppSelector } from '../../redux/hooks';
 const Carousel = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const { website, loading, error } = useAppSelector((state) => state.website);
-
-  useEffect(() => {
-    dispatch(fetchStyleData());
-  }, [dispatch]);
   const [index, setIndex] = useState(0);
   const [loaderWidth, setLoaderWidth] = useState(0);
   const slides=website?.modules.hero.data.sliders;
-  // [
-  //   {
-  //     image: website?.modules.hero.data?.img1,
-  //     title: website?.modules.hero.data?.Slide1_title,
-  //     description: website?.modules.hero.data?.Subtitle1,
-  //   },
-  //   {
-  //     image: website?.modules.hero.data?.img2,
-  //     title: website?.modules.hero.data?.Slide2_title,
-  //     description: website?.modules.hero.data?.Subtitle2,
-  //   },
-  //   {
-  //     image: website?.modules.hero.data?.img3,
-  //     title: website?.modules.hero.data?.Slide3_title,
-  //     description: website?.modules.hero.data?.Subtitle3,
-  //   },
-  // ];
   const nextSlide = useCallback(() => {
     if (!slides || slides.length === 0) return; // ✅ Safe check
     setIndex((prev) => (prev + 1) % slides.length);
@@ -55,9 +31,7 @@ const Carousel = () => {
   }, [index]);
  
     const prevSlide = () => setIndex((prev) => (prev === 0 ? (slides?.length ?? 0) - 1 : prev - 1));
-  useEffect(() => {
-    dispatch(fetchStyleData());
-  }, [dispatch]);
+
   // const { styles, loading: styleLoading, error: styleError } = useSelector((state: RootState) => state.style);
 
   if (!slides || slides.length === 0 || !slides[index]) return null;
